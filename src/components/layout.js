@@ -5,7 +5,7 @@ import { rhythm, scale } from "../utils/typography"
 
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
+    const { location, title, children, isDashboard } = this.props
     const rootPath = `${__PATH_PREFIX__}/`
     let header
 
@@ -60,12 +60,23 @@ class Layout extends React.Component {
           padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
         }}
       >
-        <header>{header}</header>
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+      {!isDashboard && (
+        <div
+          style={{
+            position: `fixed`,
+            top: `8px`,
+            right: `16px`,
+          }}
+        >
+          <Link to="/dashboard">Dashboard</Link>
+        </div>
+      )}
+      {header}
+      {children}
+      <footer>
+        © {new Date().getFullYear()}, Built with
+        {` `}
+        <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
       </div>
     )
