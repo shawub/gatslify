@@ -3,7 +3,7 @@ import { graphql, Link } from 'gatsby'
 import { withAuthenticator, Connect } from 'aws-amplify-react'
 import { graphqlOperation } from 'aws-amplify'
 
-import Layout from '../components/Layout'
+import Layout from '../components/layout'
 import { listPostLikes } from '../graphql/queries'
 
 const Dashboard = props => (
